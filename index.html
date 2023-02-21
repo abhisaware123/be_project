@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>YouTube Video Player</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 30px;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 70%;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        iframe {
+            display: block;
+            margin: auto;
+            margin-top: 50px;
+            width: 80%;
+            height: 500px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>YouTube Video Player</h1>
+
+    <form action="#" method="post" onsubmit="return playVideo()">
+        <label for="video-link">Enter a YouTube video link:</label>
+        <input type="text" id="video-link" name="video-link" placeholder="https://www.youtube.com/watch?v=...">
+        <input type="submit" value="Play Video">
+    </form>
+
+    <iframe id="video-player" src="" allowfullscreen></iframe>
+
+
+    <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/JgIXqHX2GlM"
+        title="YouTube video player" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; picture-in-picture; web-share"
+        allowfullscreen>
+    </iframe>
+
+
+
+
+    <script>
+        function playVideo() {
+            var link = document.getElementById("video-link").value;
+            var videoId = link.split("v=")[1];
+            var embedLink = "https://www.youtube.com/embed/" + videoId;
+            document.getElementById("video-player").src = embedLink;
+            return false;
+        }
+    </script>
+</body>
+
+</html>
